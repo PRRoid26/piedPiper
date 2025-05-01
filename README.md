@@ -56,7 +56,7 @@ run
 ---
 
 ## 🐚 FTP Attack Example
-> Hacking with Reverse Shell — *Part 2* by Praful Nair
+> <a href="https://prafulnair.medium.com/hacking-with-reverse-shell-part-2-2491abd99dc6">Hacking with Reverse Shell — *Part 2* by Praful Nair</a>
 
 ---
 
