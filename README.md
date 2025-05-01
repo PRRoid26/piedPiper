@@ -13,6 +13,7 @@ This repository contains a summarized guide and commonly used commands for Vulne
 
 ### Tools:
 - **EtterCap**
+   - Find IPs
 - **Wireshark**
 - **Nmap**  
   - Find IPs  
