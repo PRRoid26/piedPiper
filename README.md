@@ -66,8 +66,8 @@ run
 - **SET (Social Engineering Toolkit)**
 
 ### Examples:
-- Credential Harvesting using Kali Linux  
-- PowerShell Reverse Shell via SET  
+- <a href="https://medium.com/@kerenod4/credential-harvesting-using-kali-linux-credential-harvesting-using-set-social-engineering-c5351f64a439">Credential Harvesting using Kali Linux</a>  
+- <a href="https://amanutkhedkar.medium.com/powershell-reverse-shell-via-social-engineering-toolkit-591ca034a12d">PowerShell Reverse Shell via SET</a>  
 - Write and send phishing emails
 
 ---
@@ -92,6 +92,9 @@ hping -S <target-ip> -a <spoofed-host-ip> -p 23 --flood
 ### Platforms:
 - **WebGoat**
 - **DVWA**
+
+### CheatSheet
+- <a href="https://www.researchgate.net/figure/Retrieve-all-tables-in-the-dvwa-database-12-There-are-two-tables-in-the-database-based_fig8_354874121"> CheatSheet </a>
 
 ### Example Payloads:
 ```sql
@@ -145,4 +148,4 @@ Username:Password => msfadmin:msfadmin
 
 ---
 
-Let me know if you want this as a downloadable `README.md` file.
+
