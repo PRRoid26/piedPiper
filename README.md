@@ -65,6 +65,10 @@ run
 ### Toolkit:
 - **SET (Social Engineering Toolkit)**
 
+### Make Python Server
+- python -m http.server
+
+
 ### Examples:
 - <a href="https://medium.com/@kerenod4/credential-harvesting-using-kali-linux-credential-harvesting-using-set-social-engineering-c5351f64a439">Credential Harvesting using Kali Linux</a>  
 - <a href="https://amanutkhedkar.medium.com/powershell-reverse-shell-via-social-engineering-toolkit-591ca034a12d">PowerShell Reverse Shell via SET</a>  
