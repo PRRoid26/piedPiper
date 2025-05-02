@@ -68,6 +68,9 @@ run
 ### Make Python Server
 - python -m http.server
 
+### PowerShell 
+- <a href="https://www.scribd.com/document/577475499/06-Powershell-Attack-Tested"> Aplhanumeric </a>
+- <a href="https://amanutkhedkar.medium.com/powershell-reverse-shell-via-social-engineering-toolkit-591ca034a12d">ReverseShell</a>
 
 ### Examples:
 - <a href="https://medium.com/@kerenod4/credential-harvesting-using-kali-linux-credential-harvesting-using-set-social-engineering-c5351f64a439">Credential Harvesting using Kali Linux</a>  
